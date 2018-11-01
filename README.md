@@ -1,4 +1,4 @@
-# Examén AlMundo.com
+# Almundo Server
 
 ### Instalación
 
@@ -8,6 +8,7 @@ Setee variable de entorno de MongoDb:
 
 ```sh
 $ export MONGODB_URL="mongodb://..."
+$ ejemplo: export MONGODB_URL="mongodb://localhost:27017/examen-almundo
 ```
 
 Instalar las dependencias e iniciar:
@@ -57,7 +58,7 @@ $ npm test
 
 ```js
 name: { type: String },
-stars: { type: Number },
+stars: { type: Array },
 image: { type: String },
 price: { type: Number},
 amenities: { type: Array }
