@@ -7,24 +7,16 @@ const log = getLogger(__dirname, __filename)
 async function getHotel(req, res, next) {
     try {
         req.session.cuenta = req.session.cuenta ? req.session.cuenta + 1 : 1
-        let perPage = req.query.perPage || 9;
-        perPage = Number(perPage);
-
-        let page = req.query.page || 1;
-        page = Number(page);
 
         Hotel
             .find({})
-            .skip((perPage * page) - perPage)
-            .limit(perPage)
             .exec((err, hotels) => {
                 Hotel.countDocuments((err, count) => {
                     if (err) return next(err);
                     res.json({
                         ok: true,
                         hotels,
-                        cuantos: count,
-                        resultados: perPage
+                        cuantos: count
                     });
                 });
             });
