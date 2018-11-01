@@ -6,7 +6,11 @@
 #### Cosas por mejorar y realizar:
 
 - Modelo Hotel > stars que no se guarde como array sino como numero.
-- Hacer el filtrado de busqueda en la api, si bien por falta de tiempo no lo pude realizar, es todo un desafio que me propongo continuar por más que no se avanze en el proceso de selección. (tanto front como backend)
+- Hacer el filtrado de busqueda en la api (solo backend) en el frontend esta realizado (menos el filtrado por estrellas). 
+
+#### Objetivo profesional y personal:
+
+Crecer profesionalmente y seguir aprendiendo en el día a día. ¡ Nunca paro de aprender !
 
 ### Instalación
 
@@ -51,8 +55,22 @@ $ npm test
 ```
 
 
-#### Rutas de la Api (utilizar postman)
+#### Ejemplo de agregar hotel mediante Postman y/o similar:
 
+```
+Field Name: name | value: ingrese titulo del hotel
+Field Name: stars | value: 1
+Field Name: stars | value: 2
+Field Name: stars | value: 3
+Field Name: stars | value: 4
+Field Name: stars | value: 5
+Field Name: image | value: 6623490_6_b.jpg
+Field Name: price | value: 1267.57
+Field Name: amenities | value: business-center
+Field Name: amenities | value: nightclub
+```
+
+#### Rutas de la Api (utilizar postman):
 
 ```js
 /api/hoteles(GET)
