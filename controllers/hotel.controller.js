@@ -74,7 +74,9 @@ async function deleteHotel(req, res) {
             if (err) {
                 return res.send(err);
             } else {
-                res.send('Hotel Borrado con éxito!');
+                res.json({
+                    mensaje: 'Hotel Borrado con éxito!'
+                });
                 log.error('Hotel Borrado con éxito!')
             }
         });
