@@ -5,7 +5,7 @@
 
 #### Cosas por mejorar y realizar:
 
-- Modelo Hotel > stars que no se guarde como array sino como numero.
+- Modelo Hotel > [ACTUALIZADO AHORA SE GUARDA COMO NUMERO Y NO COMO ARRAY]
 - Hacer el filtrado de busqueda en la api (solo backend) en el frontend esta realizado (menos el filtrado por estrellas). 
 
 #### Objetivo profesional y personal:
@@ -59,11 +59,7 @@ $ npm test
 
 ```
 Field Name: name | value: ingrese titulo del hotel
-Field Name: stars | value: 1
-Field Name: stars | value: 2
-Field Name: stars | value: 3
-Field Name: stars | value: 4
-Field Name: stars | value: 5
+Field Name: stars | value: 1 (ahora como numero)
 Field Name: image | value: 6623490_6_b.jpg
 Field Name: price | value: 1267.57
 Field Name: amenities | value: business-center
