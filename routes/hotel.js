@@ -18,5 +18,8 @@ router.post('/hotel/modificar/:id', hotelController.modificarHotel);
 // Rutas /hotel/delete/:id
 router.delete('/hotel/delete/:id', hotelController.deleteHotel);
 
+// Ruta /stars/:stars
+router.get('/stars/:stars', hotelController.filtroEstrella);
+
 
 module.exports = router;

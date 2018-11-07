@@ -85,10 +85,25 @@ async function deleteHotel(req, res) {
     }
 }
 
+async function filtroEstrella(req, res) {
+    try {
+        Hotel.find({'stars': req.params.stars}, (err, hotel) => {
+            if (err) {
+                return res.send(err);
+            } else {
+                res.json(hotel);
+            }
+        })
+    } catch (err) {
+        log.error('Ups hubo un error!');
+    }
+}
+
 module.exports = {
     getHotel,
     getHotelPorId,
     modificarHotel,
     postHotel,
-    deleteHotel
+    deleteHotel,
+    filtroEstrella
 };
