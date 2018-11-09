@@ -13,7 +13,7 @@ async function getHotel(req, res, next) {
             .exec((err, hotels) => {
                 Hotel.countDocuments((err, count) => {
                     if (err) return next(err);
-                    res.json({
+                    res.status(200).json({
                         ok: true,
                         hotels,
                         cuantos: count
@@ -28,10 +28,13 @@ async function getHotel(req, res, next) {
 async function getHotelPorId(req, res) {
     try {
         Hotel.findById(req.params.id, function(err, hotel) {
-            //if (err) return next(err);
-            res.json({
-                hotel
-            });
+            if (hotel === null) {
+                return res.status(404).json({mensaje: 'No encontrado!'});
+            } else {
+                res.status(200).json({
+                    hotel
+                });
+            }
         });
     } catch (err) {
         log.error('Ups hubo un error! ' + err);
@@ -42,7 +45,7 @@ async function modificarHotel(req, res) {
     try {
         const { id } = req.params;
         await Hotel.update({ _id: id }, req.body);
-        res.send('Hotel Modificado con éxito!')
+        res.status(200).json('Hotel Modificado con éxito!')
         log.warn('Hotel Modificado con éxito!');
     } catch (err) {
         log.error('Ups hubo un error!! ' + err);
@@ -60,7 +63,7 @@ async function postHotel(req, res) {
             amenities: req.body.amenities
         });
         await hotel.save(() => {
-            res.send("Hotel agregado con éxito!");
+            res.status(201).json({mensaje: "Hotel agregado con éxito!"});
             log.info("Hotel agregado con éxito!");
         });
     } catch (err) {
@@ -74,7 +77,7 @@ async function deleteHotel(req, res) {
             if (err) {
                 return res.send(err);
             } else {
-                res.json({
+                res.status(200).json({
                     mensaje: 'Hotel Borrado con éxito!'
                 });
                 log.error('Hotel Borrado con éxito!')
@@ -91,7 +94,7 @@ async function filtroEstrella(req, res) {
             if (err) {
                 return res.send(err);
             } else {
-                res.json(hotel);
+                res.status(200).json(hotel);
             }
         })
     } catch (err) {

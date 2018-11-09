@@ -3,20 +3,20 @@ const router = express.Router();
 
 const hotelController = require('../controllers/hotel.controller');
 
-// Ruta /hoteles
+// Ruta ver todos los hoteles
 router.get('/hoteles', hotelController.getHotel);
 
-// Ruta /hotel/agregar
-router.post('/hotel/agregar', hotelController.postHotel);
+// Ruta se agrega hotel
+router.post('/hoteles', hotelController.postHotel);
 
-// Rutas /hotel/ver/:id
-router.get('/hotel/ver/:id', hotelController.getHotelPorId);
+// Ruta ver hotel por id
+router.get('/hoteles/:id', hotelController.getHotelPorId);
 
-// Rutas /hotel/modificar/:id
-router.post('/hotel/modificar/:id', hotelController.modificarHotel);
+// Ruta modificar hotel por id
+router.put('/hoteles/:id', hotelController.modificarHotel);
 
-// Rutas /hotel/delete/:id
-router.delete('/hotel/delete/:id', hotelController.deleteHotel);
+// Ruta eliminar hotel por id
+router.delete('/hoteles/:id', hotelController.deleteHotel);
 
 // Ruta /stars/:stars
 router.get('/stars/:stars', hotelController.filtroEstrella);
