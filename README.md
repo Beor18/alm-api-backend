@@ -70,10 +70,10 @@ Field Name: amenities | value: nightclub
 
 ```js
 /api/hoteles(GET)
-/api/hotel/agregar (POST)
-/api/hotel/ver/:id (GET)
-/api/hotel/modificar/:id (POST)
-/api/hotel/delete/:id (DELETE)
+/api/hoteles/:id (GET)
+/api/hoteles (POST)
+/api/hoteles/:id (PUT)
+/api/hoteles/:id (DELETE)
 ```
 
 #### Modelo Hotel
