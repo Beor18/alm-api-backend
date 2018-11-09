@@ -8,7 +8,7 @@ async function getHotel(req, res, next) {
     try {
         req.session.cuenta = req.session.cuenta ? req.session.cuenta + 1 : 1
 
-        Hotel
+        await Hotel
             .find({})
             .exec((err, hotels) => {
                 Hotel.countDocuments((err, count) => {
@@ -27,7 +27,7 @@ async function getHotel(req, res, next) {
 
 async function getHotelPorId(req, res) {
     try {
-        Hotel.findById(req.params.id, function(err, hotel) {
+        await Hotel.findById(req.params.id, function(err, hotel) {
             if (hotel === null) {
                 return res.status(404).json({mensaje: 'No encontrado!'});
             } else {
@@ -73,7 +73,7 @@ async function postHotel(req, res) {
 
 async function deleteHotel(req, res) {
     try {
-        Hotel.findByIdAndRemove(req.params.id, (err) => {
+        await Hotel.findByIdAndRemove(req.params.id, (err) => {
             if (err) {
                 return res.send(err);
             } else {
@@ -90,7 +90,7 @@ async function deleteHotel(req, res) {
 
 async function filtroEstrella(req, res) {
     try {
-        Hotel.find({'stars': req.params.stars}, (err, hotel) => {
+        await Hotel.find({'stars': req.params.stars}, (err, hotel) => {
             if (err) {
                 return res.send(err);
             } else {
