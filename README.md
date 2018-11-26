@@ -80,7 +80,7 @@ Field Name: amenities | value: nightclub
 
 ```js
 name: { type: String },
-stars: { type: Array },
+stars: { type: Number },
 image: { type: String },
 price: { type: Number},
 amenities: { type: Array }

@@ -11,6 +11,12 @@ const hotel = require('./routes/hotel');
 const { getLogger, logHandler, terminate } = require('@jwt/utils')
 
 const app = express();
+const http = require('http');
+const socketIO = require('socket.io');
+
+const server = http.createServer(app);
+module.exports.io = socketIO(server);
+const socketEvento = require('./config-socket/socketEvento');
 
 app.use((req, res, next) => {
     res.header('Access-Control-Allow-Origin', '*');
@@ -46,7 +52,7 @@ const log = getLogger(__dirname, __filename)
 const PORT = process.env.PORT || 5000;
 
 if (!module.parent) {
-    app.listen(PORT, () => {
+    server.listen(PORT, () => {
         log.info(`Server funcionando en puerto ${PORT}`);
     })
 

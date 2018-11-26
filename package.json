@@ -26,6 +26,7 @@
         "mongoose": "^5.2.8",
         "restify": "^4.3.0",
         "restify-cookies": "^0.2.2",
+        "socket.io": "^2.1.1",
         "validator": "^10.5.0"
     },
     "devDependencies": {
