@@ -18,7 +18,7 @@ io.on('connection', (socket) => {
 const getApiAndEmit = async socket => {
     try {
       const res = await Hotel.find({}).sort({ _id: 1 }).countDocuments();
-      const p = await Hotel.find({}).sort({_id: -1}).limit(4);
+      const p = await Hotel.find({}).sort({_id: -1}).limit(5);
       socket.emit("FromAPI", res);
       socket.emit("FromHotel", p);
     } catch (error) {
