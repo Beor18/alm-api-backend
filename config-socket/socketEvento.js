@@ -20,7 +20,7 @@ io.on('connection', (socket) => {
 
 });
 
-const getApiAndEmit = async socket => {
+async function getApiAndEmit(socket) {
     try {
         const res = await Hotel.find({}).sort({ _id: 1 }).countDocuments();
         const p = await Hotel.find({}).sort({_id: -1}).limit(5);
@@ -31,10 +31,10 @@ const getApiAndEmit = async socket => {
     }
 };
 
-const getUsoMemo = async socket => {
+async function getUsoMemo(socket) {
     try {
-        let memTotal, memUsed = 0, memFree = 0, percentUsed, percentFree;
-        child = exec("egrep --color 'MemFree' /proc/meminfo | egrep '[0-9.]{4,}' -o", (error, stdout) => {
+        let memTotal, memUsed = 0, memFree = 0, memBuffered = 0, percentBuffered, percentUsed, percentFree;
+        child = await exec("egrep --color 'MemFree' /proc/meminfo | egrep '[0-9.]{4,}' -o", (error, stdout) => {
             if (error !== null) {
               console.log('exec error: ' + error);
             } else {
@@ -45,6 +45,17 @@ const getUsoMemo = async socket => {
               socket.emit('memDisponible', stdout); 
             }
         });
+
+        child = await exec("egrep --color 'Buffers' /proc/meminfo | egrep '[0-9.]{4,}' -o", (error, stdout) => {
+            if (error !== null) {
+              console.log('exec error: ' + error);
+            } else {
+              memBuffered = stdout;
+              percentBuffered = Math.round(parseInt(memBuffered)*100/parseInt(memTotal));
+              socket.emit('memBuffered', stdout);
+            }
+        });
+        
     } catch (error) {
         console.error(`Error: ${error.code}`);
     }
