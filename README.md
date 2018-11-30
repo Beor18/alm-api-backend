@@ -46,7 +46,7 @@ En modo debug:
 $ npm run debug
 ```
 
-Testear Api Rest (En construcción):
+Testear Api Rest:
 
 ```sh
 $ npm run dev
