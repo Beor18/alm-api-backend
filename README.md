@@ -1,6 +1,5 @@
 # Almundo Server
 
-- Me hubiera gustado incoorporar las validaciones en el backend (carpeta validación)
 - Reutilize un esquema que habia realizado para el backend lo pueden ver en [jwt-login](http://github.com/beor18/jwt-login) lo mismo para el frontend.
 
 #### Cosas por mejorar y realizar:
