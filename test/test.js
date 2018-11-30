@@ -6,14 +6,14 @@ chai.use(chaiHttp);
 const url = 'http://localhost:5000';
 
 // Testeando api rest: registrar usuario
-describe('/ POST /api/users/register', () => {
-    it('Se ha registrado un usuario', (done) => {
+describe('/ POST /api/hoteles', () => {
+    it('Se ha registrado un hotel', (done) => {
         chai.request(url)
-            .post('/api/users/register')
-            .send({ id: 0, name: "Prueba", email: "testing@demo.com", password: "12345678", password_confirm: "12345678" })
+            .post('/api/hoteles')
+            .send({ id: 0, name: "Hotel Testing Prueba 3", stars: "5", image: "6623490_6_b.jpg", price: "234.56", amenities: ["business-center", "nightclub"] })
             .end(function(err, res) {
                 console.log(res.body)
-                expect(res).to.have.status(200);
+                expect(res).to.have.status(201);
                 done();
             });
     });
