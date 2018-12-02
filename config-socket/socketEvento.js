@@ -1,5 +1,7 @@
 const { io } = require('../app');
 const Hotel = require('../models/Hotel');
+const axios = require("axios");
+
 let exec = require('child_process').exec, child;
 
 io.on('connection', (socket) => {
@@ -14,6 +16,11 @@ io.on('connection', (socket) => {
         4000
     );
 
+    setInterval(
+        () => getTemperatura(socket), 
+        3000
+    );
+
     socket.on('disconnect', () => {
         console.log("Cliente Desconectado");
     });
@@ -26,6 +33,17 @@ async function getApiAndEmit(socket) {
         const p = await Hotel.find({}).sort({_id: -1}).limit(5);
         socket.emit("FromAPI", res);
         socket.emit("FromHotel", p);
+    } catch (error) {
+        console.error(`Error: ${error.code}`);
+    }
+};
+
+async function getTemperatura(socket) {
+    try {
+        const respuesta = await axios.get("http://ingresar-url");
+        socket.emit("FromTemperatura", respuesta.data.cuantos);
+        console.log(respuesta.data.cuantos);
+        
     } catch (error) {
         console.error(`Error: ${error.code}`);
     }
