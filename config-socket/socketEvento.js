@@ -42,7 +42,6 @@ async function getTemperatura(socket) {
     try {
         const respuesta = await axios.get("http://ingresar-url");
         socket.emit("FromTemperatura", respuesta.data.cuantos);
-        console.log(respuesta.data.cuantos);
         
     } catch (error) {
         console.error(`Error: ${error.code}`);
