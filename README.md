@@ -2,6 +2,10 @@
 
 - Reutilize un esquema que habia realizado para el backend lo pueden ver en [jwt-login](http://github.com/beor18/jwt-login) lo mismo para el frontend.
 
+## Demo:
+
+[Almundo-server Backend demo](https://almundo-examen.herokuapp.com/api/hoteles)
+
 #### Cosas por mejorar y realizar:
 
 - Modelo Hotel > [ACTUALIZADO AHORA SE GUARDA COMO NUMERO Y NO COMO ARRAY]
