@@ -24,7 +24,7 @@
         "express": "^4.16.3",
         "express-session": "^1.15.6",
         "mocha": "^5.2.0",
-        "mongoose": "^5.2.8",
+        "mongoose": "^5.4.10",
         "restify": "^4.3.0",
         "restify-cookies": "^0.2.2",
         "socket.io": "^2.1.1",
