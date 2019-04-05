@@ -92,7 +92,10 @@ async function filtroEstrella(req, res) {
     try {
         await Hotel.find({'stars': req.params.stars}, (err, hotel) => {
             if (hotel <= null) {
-                return res.status(404).json({mensaje: 'No encontrado!'});
+                return res.status(404).json({
+                    mensaje: 'No encontrado!',
+                    hotels: hotel
+                });
             } else {
                 res.status(200).json({
                     ok: 'Todo ok',
