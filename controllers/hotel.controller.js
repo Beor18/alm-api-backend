@@ -94,7 +94,10 @@ async function filtroEstrella(req, res) {
             if (err) {
                 return res.send(err);
             } else {
-                res.status(200).json(hotel);
+                res.status(200).json({
+                    ok: 'Todo ok',
+                    hotels: hotel
+                });
             }
         })
     } catch (err) {
