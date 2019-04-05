@@ -91,8 +91,8 @@ async function deleteHotel(req, res) {
 async function filtroEstrella(req, res) {
     try {
         await Hotel.find({'stars': req.params.stars}, (err, hotel) => {
-            if (err) {
-                return res.send(err);
+            if (hotel === null) {
+                return res.status(404).json({mensaje: 'No encontrado!'});
             } else {
                 res.status(200).json({
                     ok: 'Todo ok',
