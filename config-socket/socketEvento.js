@@ -3,6 +3,7 @@ const Hotel = require('../models/Hotel');
 const axios = require("axios");
 
 let exec = require('child_process').exec, child;
+let connectCounter = 0;
 
 io.on('connection', (socket) => {
 
@@ -10,6 +11,10 @@ io.on('connection', (socket) => {
         () => getApiAndEmit(socket),
         2000
     );
+
+    console.log("Nueva conexión desde " +  socket.handshake.address);
+    connectCounter++; 
+    console.log("Numero de conexiones actuales: " + connectCounter);
 
     setInterval(
         () => getUsoMemo(socket),
@@ -23,6 +28,8 @@ io.on('connection', (socket) => {
 
     socket.on('disconnect', () => {
         console.log("Cliente Desconectado");
+        connectCounter--;
+        console.log("Numeros de Conexiones: " + connectCounter);
     });
 
 });
@@ -40,9 +47,9 @@ async function getApiAndEmit(socket) {
 
 async function getTemperatura(socket) {
     try {
-        const respuesta = await axios.get("http://ingresar-url");
+        const respuesta = await axios.get("http://localhost:5000/api/hoteles");
         socket.emit("FromTemperatura", respuesta.data.cuantos);
-        
+        // console.log("Tenemos un total de: " + respuesta.data.cuantos + " Hoteles");
     } catch (error) {
         console.error(`Error: ${error.code}`);
     }
