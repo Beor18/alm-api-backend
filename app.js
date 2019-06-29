@@ -7,6 +7,7 @@ const session = require('express-session');
 const MongoStore = require('connect-mongo')(session);
 
 const hotel = require('./routes/hotel');
+require('newrelic');
 
 const { getLogger, logHandler, terminate } = require('@jwt/utils')
 
