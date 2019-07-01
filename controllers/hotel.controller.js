@@ -10,7 +10,7 @@ async function getHotel(req, res, next) {
 
         await Hotel
             .find({})
-            .exec((err, hotels) => {
+            .exec((hotels) => {
                 Hotel.countDocuments((err, count) => {
                     if (err) return next(err);
                     res.status(200).json({
@@ -27,7 +27,7 @@ async function getHotel(req, res, next) {
 
 async function getHotelPorId(req, res) {
     try {
-        await Hotel.findById(req.params.id, function(err, hotel) {
+        await Hotel.findById(req.params.id, (hotel) => {
             if (hotel === null) {
                 return res.status(404).json({mensaje: 'No encontrado!'});
             } else {
