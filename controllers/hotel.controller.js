@@ -11,7 +11,7 @@ async function getHotel(req, res, next) {
         await Hotel
             .find({})
             .exec((hotels) => {
-                Hotel.countDocuments((err, count) => {
+                Hotel.countDocuments((count) => {
                     if (err) return next(err);
                     res.status(200).json({
                         ok: true,
