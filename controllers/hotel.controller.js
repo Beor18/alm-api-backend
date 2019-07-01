@@ -3,14 +3,15 @@ const Hotel = require('../models/Hotel');
 const { getLogger } = require('@jwt/utils')
 const log = getLogger(__dirname, __filename)
 
-async function paginationHotel(totalPage) {
-    const perPage = req.query.perPage || 9;
+async function paginationHotel(req) {
+    let perPage = req.query.perPage || 9;
     perPage = Number(perPage);
 
-    const page = req.query.page || 1;
+    let page = req.query.page || 1;
     page = Number(page);
 
-    return totalPage = (perPage * page) - perPage;
+    totalPage = (perPage * page) - perPage;
+    console.log('Paginacion >>>>>> ', totalPage);
 }
 
 async function getHotel(req, res, next) {
@@ -19,8 +20,8 @@ async function getHotel(req, res, next) {
 
         await Hotel
             .find({})
-            .skip(this.paginationHotel(totalPage))
-            .limit(totalPage)
+            .skip(paginationHotel)
+            .limit(9)
             .exec((err, hotels) => {
                 Hotel.countDocuments((err, count) => {
                     if (err) return next(err);
@@ -28,7 +29,7 @@ async function getHotel(req, res, next) {
                         ok: true,
                         hotels,
                         cuantos: count,
-                        pagination: totalPage
+                        pagination: paginationHotel
                     });
                 });
             });
