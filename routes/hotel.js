@@ -18,6 +18,9 @@ router.put('/hoteles/:id', hotelController.modificarHotel);
 // Ruta eliminar hotel por id
 router.delete('/hoteles/:id', hotelController.deleteHotel);
 
+// Ruta se agrega habitación
+router.post('/hoteles/:id/habitaciones', hotelController.postRooms);
+
 // Ruta /stars/:stars
 router.get('/stars/:stars', hotelController.filtroEstrella);
 

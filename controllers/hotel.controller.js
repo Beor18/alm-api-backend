@@ -1,4 +1,4 @@
-const Hotel = require('../models/Hotel');
+const { Hotel, Room } = require('../models/Hotel');
 
 const { getLogger } = require('@jwt/utils')
 const log = getLogger(__dirname, __filename)
@@ -6,17 +6,16 @@ const log = getLogger(__dirname, __filename)
 
 async function getHotel(req, res, next) {
     try {
-        req.session.cuenta = req.session.cuenta ? req.session.cuenta + 1 : 1
-
         await Hotel
             .find({})
+            .populate('rooms')
             .exec((err, hotels) => {
                 Hotel.countDocuments((err, count) => {
                     if (err) return next(err);
                     res.status(200).json({
-                        ok: true,
+                        status: 'api ok',
                         hotels,
-                        cuantos: count
+                        total: count
                     });
                 });
             });
@@ -25,17 +24,24 @@ async function getHotel(req, res, next) {
     }
 }
 
-async function getHotelPorId(req, res) {
+async function getHotelPorId(req, res, next) {
     try {
-        await Hotel.findById(req.params.id, (hotel) => {
-            if (hotel === null) {
-                return res.status(404).json({mensaje: 'No encontrado!'});
-            } else {
-                res.status(200).json({
-                    hotel
-                });
-            }
-        });
+        await Hotel
+            .findById(req.params.id)
+            .populate('rooms')
+            .exec((err, hotel) => {
+                if (hotel) {
+                    Hotel.countDocuments((err) => {
+                        if (err) return next(err);
+                        res.status(200).json({
+                            status: 'api ok',
+                            hotel,
+                        });
+                    });
+                } else {
+                    return res.status(404).json({mensaje: 'No encontrado!'});
+                }
+            });
     } catch (err) {
         log.error('Ups hubo un error! ' + err);
     }
@@ -44,7 +50,7 @@ async function getHotelPorId(req, res) {
 async function modificarHotel(req, res) {
     try {
         const { id } = req.params;
-        await Hotel.update({ _id: id }, req.body);
+        await Hotel.updateOne({ _id: id }, req.body);
         res.status(200).json('Hotel Modificado con éxito!')
         log.warn('Hotel Modificado con éxito!');
     } catch (err) {
@@ -71,6 +77,23 @@ async function postHotel(req, res) {
     }
 }
 
+async function postRooms(req, res) {
+    try {
+        const { id } = req.params;
+		const newRoom = new Room(req.body);
+		const hotel = await Hotel.findById(id);
+		newRoom.hotel = hotel;
+		await newRoom.save();
+		hotel.rooms.push(newRoom);
+		await hotel.save(() => {
+            res.status(201).json({mensaje: 'Habitación agregado con éxito al Hotel!'});
+            log.info('Habitación agregado con éxito al Hotel!');
+        });
+    } catch (err) {
+        log.error('Ups hubo un error!!' + err);
+    }
+}
+
 async function deleteHotel(req, res) {
     try {
         await Hotel.findByIdAndRemove(req.params.id, (err) => {
@@ -94,11 +117,12 @@ async function filtroEstrella(req, res) {
             if (hotel <= null) {
                 return res.status(404).json({
                     mensaje: 'No encontrado!',
-                    hotels: hotel
+                    hotels: hotel,
+                    err
                 });
             } else {
                 res.status(200).json({
-                    ok: 'Todo ok',
+                    status: 'Todo ok',
                     hotels: hotel
                 });
             }
@@ -114,5 +138,6 @@ module.exports = {
     modificarHotel,
     postHotel,
     deleteHotel,
-    filtroEstrella
+    filtroEstrella,
+    postRooms
 };

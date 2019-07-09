@@ -6,11 +6,6 @@
 
 [Almundo-server Backend demo](https://almundo-examen.herokuapp.com/api/hoteles)
 
-#### Cosas por mejorar y realizar:
-
-- Modelo Hotel > [ACTUALIZADO AHORA SE GUARDA COMO NUMERO Y NO COMO ARRAY]
-- Hacer el filtrado de busqueda en la api (solo backend) en el frontend esta realizado (menos el filtrado por estrellas). 
-
 #### Objetivo profesional y personal:
 
 Crecer profesionalmente y seguir aprendiendo en el día a día. ¡ Nunca paro de aprender !
@@ -77,6 +72,7 @@ Field Name: amenities | value: nightclub
 /api/hoteles (POST)
 /api/hoteles/:id (PUT)
 /api/hoteles/:id (DELETE)
+/api/hoteles/:id/habitaciones (POST)
 ```
 
 #### Modelo Hotel
@@ -87,4 +83,11 @@ stars: { type: Number },
 image: { type: String },
 price: { type: Number},
 amenities: { type: Array }
+```
+
+#### Modelo Habitaciones
+
+```js
+name: { type: String },
+price: { type: Number }
 ```

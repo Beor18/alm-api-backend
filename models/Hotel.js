@@ -7,9 +7,19 @@ const HotelSchema = new Schema({
     stars: { type: Number },
     image: { type: String },
     price: { type: Number},
-    amenities: { type: Array }
+    amenities: { type: Array },
+    rooms: [{ type: Schema.Types.ObjectId, ref: 'Room' }]
 });
 
-const Hotel = mongoose.model('hotels', HotelSchema);
+const RoomsSchema = new Schema({
+    name: { type: String },
+    price: { type: Number }
+});
 
-module.exports = Hotel;
+const Room = mongoose.model('Room', RoomsSchema);
+const Hotel = mongoose.model('Hotel', HotelSchema);
+
+module.exports = {
+    Hotel,
+    Room
+};
