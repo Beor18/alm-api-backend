@@ -13,6 +13,10 @@ const HotelSchema = new Schema({
 
 const RoomsSchema = new Schema({
     name: { type: String },
+    description: { type: String },
+    availability: { type: Number },
+    amenities: { type: Array },
+    image: { type: String },
     price: { type: Number }
 });
 
