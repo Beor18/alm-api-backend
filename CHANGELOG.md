@@ -2,6 +2,15 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### [1.1.1](https://github.com/Beor18/alm-api-backend/compare/v1.1.0...v1.1.1) (2019-07-16)
+
+
+### Bug Fixes
+
+* update dependencies ([103e778](https://github.com/Beor18/alm-api-backend/commit/103e778))
+
+
+
 ## 1.1.0 (2019-07-11)
 
 
