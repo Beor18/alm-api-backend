@@ -1,6 +1,8 @@
 # Almundo Server
 
-- Reutilize un esquema que habia realizado para el backend lo pueden ver en [jwt-login](http://github.com/beor18/jwt-login) lo mismo para el frontend.
+[![Conventional Commits](https://img.shields.io/badge/Conventional%20Commits-1.0.0-green.svg)](https://conventionalcommits.org)
+
+- Reutilice un esquema que habia realizado para el backend lo pueden ver en [jwt-login](http://github.com/beor18/jwt-login) lo mismo para el frontend.
 
 ## Demo:
 
@@ -9,6 +11,16 @@
 #### Objetivo profesional y personal:
 
 Crecer profesionalmente y seguir aprendiendo en el día a día. ¡ Nunca paro de aprender !
+
+### Commits Messages
+
+| etiqueta  | mensaje                       |
+|-----------|-------------------------------|
+| feat:     | "Un nuevo feature importante" |
+| fix:      | "fixeado bug"                 |
+| style:    | "cambio en estilos"           |
+| refactor: | "refactorización de código"   |
+| docs:     | "documentación"               |
 
 ### Instalación
 
@@ -43,6 +55,12 @@ En modo debug:
 
 ```sh
 $ npm run debug
+```
+
+Lanzar nueva version:
+
+```sh
+$ npm run release
 ```
 
 Testear Api Rest:
@@ -89,5 +107,9 @@ amenities: { type: Array }
 
 ```js
 name: { type: String },
-price: { type: Number }
+price: { type: Number },
+description: { type: String },
+availability: { type: Number },
+image: { type: String },
+amenities: { type: Array }
 ```

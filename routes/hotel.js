@@ -24,5 +24,8 @@ router.post('/hoteles/:id/habitaciones', hotelController.postRooms);
 // Ruta /stars/:stars
 router.get('/stars/:stars', hotelController.filtroEstrella);
 
+// Ruta eliminar todos los registros
+router.post('/hoteles/down', hotelController.deleteAllHotel);
+
 
 module.exports = router;

@@ -111,6 +111,25 @@ async function deleteHotel(req, res) {
     }
 }
 
+// Eliminar todos los registros - NO TOCAR
+
+async function deleteAllHotel(req, res) {
+    try {
+        await Hotel.deleteMany({}, (err) => {
+            if (err) {
+                return res.send(err);
+            } else {
+                res.status(200).json({
+                    mensaje: 'Registros Borrado con éxito!'
+                });
+                log.warn('Registros Borrado con éxito!')
+            }
+        });
+    } catch (err) {
+        log.error('Ups hubo un error!! ' + err);
+    }
+}
+
 async function filtroEstrella(req, res) {
     try {
         await Hotel.find({'stars': req.params.stars}, (err, hotel) => {
@@ -138,6 +157,7 @@ module.exports = {
     modificarHotel,
     postHotel,
     deleteHotel,
+    deleteAllHotel,
     filtroEstrella,
     postRooms
 };
