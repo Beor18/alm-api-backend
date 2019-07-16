@@ -107,5 +107,9 @@ amenities: { type: Array }
 
 ```js
 name: { type: String },
-price: { type: Number }
+price: { type: Number },
+description: { type: String },
+availability: { type: Number },
+image: { type: String },
+amenities: { type: Array }
 ```
