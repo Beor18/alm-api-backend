@@ -1,6 +1,6 @@
 {
     "name": "jwt-node",
-    "version": "1.2.1",
+    "version": "1.2.3",
     "description": "",
     "main": "index.js",
     "scripts": {
@@ -21,6 +21,7 @@
         "chai": "*",
         "chai-http": "^4.2.0",
         "connect-mongo": "^2.0.1",
+        "cors": "^2.8.5",
         "cross-env": "^5.1.6",
         "express": "^4.16.3",
         "express-session": "^1.15.6",

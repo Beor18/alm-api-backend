@@ -63,6 +63,8 @@ async function postHotel(req, res) {
     try {
         const hotel = new Hotel({
             name: req.body.name,
+            latitude: req.body.latitude,
+            longitude: req.body.longitude,
             stars: req.body.stars,
             image: req.body.image,
             price: req.body.price,

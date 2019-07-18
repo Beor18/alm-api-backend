@@ -2,6 +2,24 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### [1.2.3](https://github.com/Beor18/alm-api-backend/compare/v1.2.2...v1.2.3) (2019-07-18)
+
+
+### Bug Fixes
+
+* fix cors ([7e9261d](https://github.com/Beor18/alm-api-backend/commit/7e9261d))
+
+
+
+### [1.2.2](https://github.com/Beor18/alm-api-backend/compare/v1.2.0...v1.2.2) (2019-07-18)
+
+
+### Bug Fixes
+
+* changes test and app ([e5a5c9e](https://github.com/Beor18/alm-api-backend/commit/e5a5c9e))
+
+
+
 ### [1.2.1](https://github.com/Beor18/alm-api-backend/compare/v1.2.0...v1.2.1) (2019-07-16)
 
 

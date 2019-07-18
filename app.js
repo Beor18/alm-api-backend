@@ -1,6 +1,7 @@
 require('newrelic');
 const express = require('express');
 const mongoose = require('mongoose');
+const cors = require('cors');
 const bodyParser = require('body-parser');
 const config = require('./config/db');
 const path = require('path');
@@ -19,13 +20,7 @@ const server = http.createServer(app);
 module.exports.io = socketIO(server);
 const socketEvento = require('./config-socket/socketEvento');
 
-app.use((req, res, next) => {
-    res.header('Access-Control-Allow-Origin', '*');
-    res.header('Access-Control-Allow-Headers', 'Origin, X-Requested-With, Content-Type, Accept, Authorization');
-    res.header('Access-Control-Allow-Methods', 'GET, POST, PUT, PATCH, DELETE');
-
-    next();
-});
+app.use(cors());
 
 // Manejo de sesiones
 app.use(session({
@@ -37,16 +32,15 @@ app.use(session({
     })
 }));
 
-
-app.use(bodyParser.urlencoded({ extended: false }));
 app.use(bodyParser.json());
+app.use(bodyParser.urlencoded({ extended: true }));
 app.use(logHandler);
 app.use(express.static(path.join(__dirname, 'public')));
 
 app.use('/api', hotel);
 
-app.get('/', function(req, res) {
-    res.send('Hola');
+app.get('/', (req, res) => {
+    res.send('Hola api rest de Hoteles! creado por Fernando López');
 });
 
 const log = getLogger(__dirname, __filename)
