@@ -45,8 +45,8 @@ app.use(express.static(path.join(__dirname, 'public')));
 
 app.use('/api', hotel);
 
-app.get('/', function(req, res) {
-    res.send('Hola');
+app.get('/', (req, res) => {
+    res.send('Hola api rest de Hoteles! creado por Fernando López');
 });
 
 const log = getLogger(__dirname, __filename)
