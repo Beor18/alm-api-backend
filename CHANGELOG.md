@@ -2,6 +2,21 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+## [1.3.0](https://github.com/Beor18/alm-api-backend/compare/v1.2.3...v1.3.0) (2019-07-23)
+
+
+### Bug Fixes
+
+* change app ([e2d6c28](https://github.com/Beor18/alm-api-backend/commit/e2d6c28))
+
+
+### Features
+
+* add autocannon performance ([f7b411c](https://github.com/Beor18/alm-api-backend/commit/f7b411c))
+* add new fields ([e2d67bb](https://github.com/Beor18/alm-api-backend/commit/e2d67bb))
+
+
+
 ### [1.2.3](https://github.com/Beor18/alm-api-backend/compare/v1.2.2...v1.2.3) (2019-07-18)
 
 
