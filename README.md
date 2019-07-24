@@ -18,7 +18,6 @@ Crecer profesionalmente y seguir aprendiendo en el día a día. ¡ Nunca paro de
 |-----------|-------------------------------|
 | feat:     | "Un nuevo feature importante" |
 | fix:      | "fixeado bug"                 |
-| style:    | "cambio en estilos"           |
 | refactor: | "refactorización de código"   |
 | docs:     | "documentación"               |
 
@@ -97,10 +96,19 @@ Field Name: amenities | value: nightclub
 
 ```js
 name: { type: String },
+description: { type: String },
+address: { type: String },
+neighborhood: { type: String },
+province: { type: String },
+latitude: { type: String },
+longitude: { type: String },
 stars: { type: Number },
 image: { type: String },
 price: { type: Number},
-amenities: { type: Array }
+discount: { type: Number },
+phone: { type: String },
+amenities: { type: Array },
+rooms: [{ type: Schema.Types.ObjectId, ref: 'Room' }]
 ```
 
 #### Modelo Habitaciones
