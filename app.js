@@ -37,8 +37,10 @@ app.use(session({
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: true }));
 app.use(logHandler);
-
 app.use('/api', hotel);
+
+app.disable('etag');
+app.disable('x-powered-by');
 
 app.get('/', (req, res) => {
     res.send('Hola api rest de Hoteles! creado por Fernando López');
