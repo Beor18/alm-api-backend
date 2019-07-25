@@ -1,6 +1,6 @@
 {
     "name": "jwt-node",
-    "version": "1.4.0",
+    "version": "1.4.1",
     "description": "",
     "main": "index.js",
     "scripts": {
@@ -34,7 +34,6 @@
     },
     "devDependencies": {
         "coveralls": "^3.0.5",
-        "cross-spawn": "^6.0.5",
         "jest": "^24.8.0",
         "nodemon": "^1.18.3",
         "supertest": "^4.0.2"

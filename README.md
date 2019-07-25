@@ -1,5 +1,7 @@
 # Almundo Server
 
+[![Build Status](https://travis-ci.org/Beor18/alm-api-backend.svg?branch=master)](https://travis-ci.org/Beor18/alm-api-backend)
+
 [![Conventional Commits](https://img.shields.io/badge/Conventional%20Commits-1.0.0-green.svg)](https://conventionalcommits.org)
 
 - Reutilice un esquema que habia realizado para el backend lo pueden ver en [jwt-login](http://github.com/beor18/jwt-login) lo mismo para el frontend.
