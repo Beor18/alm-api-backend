@@ -9,4 +9,4 @@ before_install:
 script:
   - npm test -- --coverage
   - npm start
-  - npm run coveralls
+  - npm run coverage
