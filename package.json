@@ -7,8 +7,7 @@
         "start": "cross-env NODE_ENV=production node app.js",
         "dev": "cross-env NODE_ENV=development nodemon app.js",
         "debug": "cross-env DEBUG=* node --inspect app.js",
-        "test": "cross-env NODE_ENV=test jest",
-        "coverage": "jest --coverage && cat ./coverage/lcov.info | ./node_modules/coveralls/bin/coveralls.js",
+        "test": "cross-env NODE_ENV=test jest --coverage",
         "release": "standard-version"
     },
     "keywords": [],
