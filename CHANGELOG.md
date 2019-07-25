@@ -2,6 +2,25 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+## [1.4.0](https://github.com/Beor18/alm-api-backend/compare/v1.3.0...v1.4.0) (2019-07-25)
+
+
+### Bug Fixes
+
+* add config travis ([b65dbf4](https://github.com/Beor18/alm-api-backend/commit/b65dbf4))
+* add disable etag ([4c1b35c](https://github.com/Beor18/alm-api-backend/commit/4c1b35c))
+* change travis config ([1755167](https://github.com/Beor18/alm-api-backend/commit/1755167))
+* change travis config and package ([41d4231](https://github.com/Beor18/alm-api-backend/commit/41d4231))
+* fix travis and package ([2bf4fd3](https://github.com/Beor18/alm-api-backend/commit/2bf4fd3))
+* update gitignore ([390857e](https://github.com/Beor18/alm-api-backend/commit/390857e))
+
+
+### Features
+
+* jest config ([6eab246](https://github.com/Beor18/alm-api-backend/commit/6eab246))
+
+
+
 ## [1.3.0](https://github.com/Beor18/alm-api-backend/compare/v1.2.3...v1.3.0) (2019-07-23)
 
 

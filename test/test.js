@@ -1,29 +1,29 @@
-let chai = require('chai');
-let chaiHttp = require('chai-http');
-const expect = require('chai').expect;
+const supertest = require('supertest');
+const url = 'https://almundo-examen.herokuapp.com';
 
-chai.use(chaiHttp);
-const url = 'http://localhost:5000';
-
-// Testeando api rest: registrar usuario
-describe('/ POST /api/hoteles', () => {
-    it('Se ha registrado un hotel', (done) => {
-        chai.request(url)
+// Testeando api rest
+describe('hoteles API', () => {
+    it('Se ha registrado un hotel', async () => {
+        const request = await supertest(url)
             .post('/api/hoteles')
             .send({ 
-                id: 0, 
-                name: 'Hotel Testing Prueba 001',
-                latitude: '',
-                longitude: '',
-                stars: 3, 
-                image: '6623490_6_b.jpg', 
-                price: 234.56, 
-                amenities: ['business-center', 'nightclub']
+              id: 0, 
+              name: 'Hotel Testing Prueba con JEST',
+              latitude: '',
+              longitude: '',
+              stars: 3, 
+              image: '6623490_6_b.jpg', 
+              price: 234.56, 
+              amenities: ['business-center', 'nightclub']
             })
-            .end((err, res) => {
-                console.log(res.body)
-                expect(res).to.have.status(201);
-                done();
-            });
+            .expect(201);
+        expect(request.body);
     });
+
+    it('GET a todos los hoteles', async () => {
+        const response = await supertest(url)
+            .get('/api/hoteles')
+            .expect(200);
+        expect(response.body);
+    });  
 });
