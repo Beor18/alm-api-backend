@@ -2,17 +2,6 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
-### [1.4.2](https://github.com/Beor18/alm-api-backend/compare/v1.4.1...v1.4.2) (2019-07-26)
-
-
-### Bug Fixes
-
-* add dependencies pm2 ([0c03e0d](https://github.com/Beor18/alm-api-backend/commit/0c03e0d))
-* change hotel controller ([f80e710](https://github.com/Beor18/alm-api-backend/commit/f80e710))
-* change name function ([3106cd6](https://github.com/Beor18/alm-api-backend/commit/3106cd6))
-
-
-
 ### [1.4.1](https://github.com/Beor18/alm-api-backend/compare/v1.4.0...v1.4.1) (2019-07-25)
 
 

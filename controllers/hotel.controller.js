@@ -61,7 +61,21 @@ async function modificarHotel(req, res) {
 
 async function postHotel(req, res) {
     try {
-        const hotel = new Hotel(req.body);
+        const hotel = new Hotel({
+            name: req.body.name,
+            description: req.body.description,
+            address: req.body.address,
+            neighborhood: req.body.neighborhood,
+            province: req.body.province,
+            latitude: req.body.latitude,
+            longitude: req.body.longitude,
+            stars: req.body.stars,
+            image: req.body.image,
+            price: req.body.price,
+            discount: req.body.discount,
+            phone: req.body.phone,
+            amenities: req.body.amenities
+        });
         await hotel.save(() => {
             res.status(201).json({mensaje: "Hotel agregado con éxito!"});
             log.info("Hotel agregado con éxito!");

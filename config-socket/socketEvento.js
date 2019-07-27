@@ -22,7 +22,7 @@ io.on('connection', (socket) => {
     );
 
     setInterval(
-        () => getCountHotels(socket), 
+        () => getTemperatura(socket), 
         3000
     );
 
@@ -45,7 +45,7 @@ async function getApiAndEmit(socket) {
     }
 };
 
-async function getCountHotels(socket) {
+async function getTemperatura(socket) {
     try {
         const respuesta = await axios.get("http://localhost:5000/api/hoteles");
         socket.emit("FromTemperatura", respuesta.data.cuantos);
