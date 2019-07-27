@@ -1,10 +1,10 @@
 {
     "name": "jwt-node",
-    "version": "1.4.1",
+    "version": "1.4.2",
     "description": "",
     "main": "index.js",
     "scripts": {
-        "start": "cross-env NODE_ENV=production node app.js",
+        "start": "pm2 start app.js",
         "dev": "cross-env NODE_ENV=development nodemon app.js",
         "debug": "cross-env DEBUG=* node --inspect app.js",
         "test": "cross-env NODE_ENV=test jest --coverage",
@@ -26,6 +26,7 @@
         "express-session": "^1.15.6",
         "mongoose": "^5.4.10",
         "newrelic": "^5.10.0",
+        "pm2": "^3.5.1",
         "restify": "^4.3.0",
         "restify-cookies": "^0.2.2",
         "socket.io": "^2.1.1",
