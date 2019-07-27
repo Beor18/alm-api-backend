@@ -3,29 +3,27 @@ const router = express.Router();
 
 const hotelController = require('../controllers/hotel.controller');
 
-// Ruta ver todos los hoteles
-router.get('/hoteles', hotelController.getHotel);
+// Ruta mostrar todos los hoteles y agregar hotel
+router.route('/hoteles')
+    .get(hotelController.getHotel)
+    .post(hotelController.postHotel);
 
-// Ruta se agrega hotel
-router.post('/hoteles', hotelController.postHotel);
+// Ruta hoteles por id - Mostrar - Modificar - Eliminar
+router.route('/hoteles/:id')
+    .get(hotelController.getHotelPorId)
+    .put(hotelController.modificarHotel)
+    .delete(hotelController.deleteHotel);
 
-// Ruta ver hotel por id
-router.get('/hoteles/:id', hotelController.getHotelPorId);
+// Ruta agregar habitaciones a un hotel especifico
+router.route('/hoteles/:id/habitaciones')
+    .post(hotelController.postRooms);
 
-// Ruta modificar hotel por id
-router.put('/hoteles/:id', hotelController.modificarHotel);
-
-// Ruta eliminar hotel por id
-router.delete('/hoteles/:id', hotelController.deleteHotel);
-
-// Ruta se agrega habitación
-router.post('/hoteles/:id/habitaciones', hotelController.postRooms);
-
-// Ruta /stars/:stars
-router.get('/stars/:stars', hotelController.filtroEstrella);
+// Ruta filtro estrellas
+router.route('/stars/:stars')
+    .get(hotelController.filtroEstrella);
 
 // Ruta eliminar todos los registros
-router.post('/hoteles/down', hotelController.deleteAllHotel);
-
+router.route('/hoteles/down')
+    .post(hotelController.deleteAllHotel);
 
 module.exports = router;
