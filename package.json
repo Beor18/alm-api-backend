@@ -15,7 +15,7 @@
     "license": "ISC",
     "husky": {
         "hooks": {
-          "commit-msg": "commitlint -E HUSKY_GIT_PARAMS"
+            "commit-msg": "commitlint -E HUSKY_GIT_PARAMS"
         }
     },
     "dependencies": {
@@ -38,6 +38,7 @@
     "devDependencies": {
         "@commitlint/cli": "^8.1.0",
         "@commitlint/config-conventional": "^7.5.0",
+        "@commitlint/config-lerna-scopes": "^8.1.0",
         "coveralls": "^3.0.5",
         "husky": "^3.0.1",
         "jest": "^24.8.0",
