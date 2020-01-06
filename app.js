@@ -22,7 +22,7 @@ const socketEvento = require('./config-socket/socketEvento');
 const log = getLogger(__dirname, __filename)
 const PORT = process.env.PORT || 5000;
 
-app.use(cors());
+app.use(cors(({exposedHeaders: ['Content-Length', 'X-Total-Count']})));
 
 // Manejo de sesiones
 app.use(session({

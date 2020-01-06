@@ -1,7 +1,8 @@
 const mongoose = require('mongoose');
-
+const toJson = require('@meanie/mongoose-to-json');
 const Schema = mongoose.Schema;
 
+mongoose.plugin(toJson);
 const HotelSchema = new Schema({
     name: { type: String },
     description: { type: String },

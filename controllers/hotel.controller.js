@@ -9,12 +9,12 @@ async function getHotel(req, res, next) {
         await Hotel
             .find({})
             .populate('rooms')
-            .exec((err, hotels) => {
+            .exec((err, data) => {
                 Hotel.countDocuments((err, count) => {
                     if (err) return next(err);
                     res.status(200).json({
                         status: 'api ok',
-                        hotels,
+                        data,
                         total: count
                     });
                 });
