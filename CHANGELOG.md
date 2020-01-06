@@ -2,6 +2,34 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+## [1.6.0](https://github.com/Beor18/alm-api-backend/compare/v1.4.1...v1.6.0) (2020-01-06)
+
+
+### Bug Fixes
+
+* actualizado package ([c6ada56](https://github.com/Beor18/alm-api-backend/commit/c6ada56))
+* add dependencies pm2 ([0c03e0d](https://github.com/Beor18/alm-api-backend/commit/0c03e0d))
+* change hotel controller ([f80e710](https://github.com/Beor18/alm-api-backend/commit/f80e710))
+* change name function ([3106cd6](https://github.com/Beor18/alm-api-backend/commit/3106cd6))
+* change testing and add coverage logs ([6278d9f](https://github.com/Beor18/alm-api-backend/commit/6278d9f))
+* changes commitlint config ([ae2e250](https://github.com/Beor18/alm-api-backend/commit/ae2e250))
+* fix package ([21df604](https://github.com/Beor18/alm-api-backend/commit/21df604))
+* refactor routes hotel ([f785834](https://github.com/Beor18/alm-api-backend/commit/f785834))
+* remove dependencies package ([6ad1932](https://github.com/Beor18/alm-api-backend/commit/6ad1932))
+* revert start ([db1e105](https://github.com/Beor18/alm-api-backend/commit/db1e105))
+
+
+### Features
+
+* actualizado docker config ([81291cf](https://github.com/Beor18/alm-api-backend/commit/81291cf))
+* actualizado readme ([464213a](https://github.com/Beor18/alm-api-backend/commit/464213a))
+* add dockerfile ([abfc9ba](https://github.com/Beor18/alm-api-backend/commit/abfc9ba))
+* add new dependencies and new scripts ([7baf292](https://github.com/Beor18/alm-api-backend/commit/7baf292))
+* agregado gitignore ([f2c5e33](https://github.com/Beor18/alm-api-backend/commit/f2c5e33))
+* dependencias, cambios en app, controllers y models ([f70b1a8](https://github.com/Beor18/alm-api-backend/commit/f70b1a8))
+
+
+
 ## [1.5.0](https://github.com/Beor18/alm-api-backend/compare/v1.4.3...v1.5.0) (2019-07-29)
 
 
