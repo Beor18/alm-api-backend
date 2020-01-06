@@ -3,3 +3,4 @@ public/imagenes-subidas
 /logs
 newrelic_agent.log
 /coverage
+.env
