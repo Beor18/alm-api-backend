@@ -1,5 +1,5 @@
 # Defines our composer file version
-version: "2.2"
+version: "3.1"
 # Define our services 
 services: 
   # This is our nodejs app built using the Dockerfile
@@ -13,7 +13,7 @@ services:
     build: .
     # Exposes the necessary ports that our node app uses
     ports:
-      - "3000:3000"
+      - "5000:5000"
     # All the services our node app will link to -
     # which in our case is only mongo
     # You can other services such as a Redis
@@ -25,6 +25,9 @@ services:
     # The name of the database container, NOTE: it is similar to the name provided
     # in the links value
     container_name: mongo
+    command: mongod
+    volumes:
+      - ./myData:/data/db
     # Builds a mongo image from the docker repository
     image: mongo
     # Exposes the ports that mongo uses
