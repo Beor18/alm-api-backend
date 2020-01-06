@@ -31,7 +31,7 @@ Setee variable de entorno de MongoDb:
 
 ```sh
 $ export MONGODB_URL="mongodb://..."
-$ ejemplo: export MONGODB_URL="mongodb://localhost:27017/examen-almundo
+$ ejemplo: export MONGODB_URL="mongodb://localhost:27017/examen-almundo"
 ```
 
 Instalar las dependencias e iniciar:
