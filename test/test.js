@@ -5,7 +5,7 @@ const url = 'https://almundo-examen.herokuapp.com';
 describe('hoteles API', () => {
     it('Se ha registrado un hotel', async () => {
         const request = await supertest(url)
-            .post('/api/hoteles')
+            .post('/api/v1/hoteles')
             .send({ 
               id: 0, 
               name: 'Hotel Testing Prueba con JEST',
@@ -22,7 +22,7 @@ describe('hoteles API', () => {
 
     it('GET a todos los hoteles', async () => {
         const response = await supertest(url)
-            .get('/api/hoteles')
+            .get('/api/v1/hoteles')
             .expect(200);
         expect(response.body);
     });  
