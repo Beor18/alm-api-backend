@@ -25,11 +25,17 @@ Crecer profesionalmente y seguir aprendiendo en el día a día. ¡ Nunca paro de
 
 Tener instalado [Node.js](https://nodejs.org/) y [MongoDB](https://www.mongodb.com/es).
 
-Setee variable de entorno de MongoDb:
+Setee variable de entorno de MongoDb
 
 ```sh
 $ export MONGODB_URL="mongodb://..."
 $ ejemplo: export MONGODB_URL="mongodb://localhost:27017/examen-almundo"
+```
+
+#### puede optar por crear un archivo .env
+
+```sh
+MONGODB_URL=mongodb://localhost:27017/examen-almundo
 ```
 
 Instalar las dependencias e iniciar:
