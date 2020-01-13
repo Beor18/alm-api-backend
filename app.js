@@ -37,7 +37,7 @@ app.use(session({
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: true }));
 app.use(logHandler);
-app.use('/api', hotel);
+app.use('/api/v1', hotel);
 
 app.disable('etag');
 app.disable('x-powered-by');

@@ -1,8 +1,6 @@
 # Almundo Server
 
-[![Build Status](https://travis-ci.org/Beor18/alm-api-backend.svg?branch=master)](https://travis-ci.org/Beor18/alm-api-backend)
-
-[![Conventional Commits](https://img.shields.io/badge/Conventional%20Commits-1.0.0-green.svg)](https://conventionalcommits.org)
+[![Build Status](https://travis-ci.org/Beor18/alm-api-backend.svg?branch=master)](https://travis-ci.org/Beor18/alm-api-backend) [![Conventional Commits](https://img.shields.io/badge/Conventional%20Commits-1.0.0-green.svg)](https://conventionalcommits.org)
 
 - Reutilice un esquema que habia realizado para el backend lo pueden ver en [jwt-login](http://github.com/beor18/jwt-login) lo mismo para el frontend.
 
@@ -71,6 +69,11 @@ $ npm run dev
 $ npm test
 ```
 
+#### Con Docker
+```sh
+$ docker-compose build && docker-compose up
+```
+
 
 #### Ejemplo de agregar hotel mediante Postman y/o similar:
 
@@ -83,15 +86,15 @@ Field Name: amenities | value: business-center
 Field Name: amenities | value: nightclub
 ```
 
-#### Rutas de la Api (utilizar postman):
+#### Rutas de la Api (utilizar postman) v1:
 
 ```js
-/api/hoteles(GET)
-/api/hoteles/:id (GET)
-/api/hoteles (POST)
-/api/hoteles/:id (PUT)
-/api/hoteles/:id (DELETE)
-/api/hoteles/:id/habitaciones (POST)
+/api/v1/hoteles(GET)
+/api/v1/hoteles/:id (GET)
+/api/v1/hoteles (POST)
+/api/v1/hoteles/:id (PUT)
+/api/v1/hoteles/:id (DELETE)
+/api/v1/hoteles/:id/habitaciones (POST)
 ```
 
 #### Modelo Hotel
