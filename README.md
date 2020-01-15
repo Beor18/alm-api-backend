@@ -6,7 +6,9 @@
 
 ## Demo:
 
-[Almundo-server Backend demo](https://almundo-examen.herokuapp.com/api/hoteles)
+[Almundo-server Backend demo api v1](https://almundo-examen.herokuapp.com/api/v1/hoteles)
+
+[Almundo-server Backend demo api v2 - con GraphQL](https://almundo-examen.herokuapp.com/api/v2/graphql)
 
 #### Objetivo profesional y personal:
 
