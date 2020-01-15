@@ -1,4 +1,4 @@
-const { Hotel, Room } = require('../models/Hotel');
+const { Hotel, Room } = require('../../models/Hotel');
 
 const { getLogger } = require('@jwt/utils')
 const log = getLogger(__dirname, __filename)

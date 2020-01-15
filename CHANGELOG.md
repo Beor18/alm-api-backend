@@ -2,6 +2,27 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+## [1.7.0](https://github.com/Beor18/alm-api-backend/compare/v1.6.0...v1.7.0) (2020-01-15)
+
+
+### Bug Fixes
+
+* actualizado package y readme ([9a71110](https://github.com/Beor18/alm-api-backend/commit/9a71110))
+* actualizado readme ([b374748](https://github.com/Beor18/alm-api-backend/commit/b374748))
+* actualizado test ([4e11c48](https://github.com/Beor18/alm-api-backend/commit/4e11c48))
+* cambio en import ([0881138](https://github.com/Beor18/alm-api-backend/commit/0881138))
+* se mueve controller ([aa48f00](https://github.com/Beor18/alm-api-backend/commit/aa48f00))
+* test habitaciones ([0a15b97](https://github.com/Beor18/alm-api-backend/commit/0a15b97))
+* version api y actualizado readme ([e51ba7b](https://github.com/Beor18/alm-api-backend/commit/e51ba7b))
+
+
+### Features
+
+* agregado api v2 graphql ([4190b82](https://github.com/Beor18/alm-api-backend/commit/4190b82))
+* controller graphql ([9b891ed](https://github.com/Beor18/alm-api-backend/commit/9b891ed))
+
+
+
 ## [1.6.0](https://github.com/Beor18/alm-api-backend/compare/v1.4.1...v1.6.0) (2020-01-06)
 
 

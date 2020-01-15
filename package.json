@@ -1,6 +1,6 @@
 {
     "name": "jwt-node",
-    "version": "1.6.0",
+    "version": "1.7.0",
     "description": "",
     "main": "index.js",
     "scripts": {
@@ -30,7 +30,9 @@
         "cors": "^2.8.5",
         "cross-env": "^5.1.6",
         "express": "^4.16.3",
+        "express-graphql": "^0.9.0",
         "express-session": "^1.15.6",
+        "graphql": "^14.5.8",
         "mongoose": "^5.4.10",
         "newrelic": "^5.10.0",
         "short-unique-id": "^1.1.1",

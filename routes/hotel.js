@@ -1,7 +1,7 @@
 const express = require('express');
 const router = express.Router();
 
-const hotelController = require('../controllers/hotel.controller');
+const hotelController = require('../controllers/v1/hotel.controller');
 
 // Ruta mostrar todos los hoteles y agregar hotel
 router.route('/hoteles')

@@ -6,8 +6,9 @@ const bodyParser = require('body-parser');
 const config = require('./config/db');
 const session = require('express-session');
 const MongoStore = require('connect-mongo')(session);
-
+const graphqlServer = require('express-graphql');
 const hotel = require('./routes/hotel');
+const schema = require('./controllers/v2/schema')
 
 const { getLogger, logHandler, terminate } = require('@jwt/utils')
 
@@ -37,7 +38,14 @@ app.use(session({
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: true }));
 app.use(logHandler);
+// API REST v1
 app.use('/api/v1', hotel);
+
+// API v2 con GraphQL
+app.use('/api/v2/graphql', graphqlServer({
+    schema: schema,
+    graphiql: true
+}));
 
 app.disable('etag');
 app.disable('x-powered-by');
