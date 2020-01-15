@@ -103,6 +103,22 @@ Field Name: amenities | value: nightclub
 /api/v1/hoteles/:id/habitaciones (POST)
 ```
 
+#### Rutas y query de la Api v2 con GraphQl:
+```js
+/api/v2/graphql
+```
+
+```js
+{
+  hoteles {
+    id
+    name
+    description
+  }
+}
+```
+
+
 #### Modelo Hotel
 
 ```js
