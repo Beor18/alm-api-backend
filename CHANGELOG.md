@@ -2,6 +2,23 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+## [1.8.0](https://github.com/Beor18/alm-api-backend/compare/v1.7.0...v1.8.0) (2020-01-18)
+
+
+### Bug Fixes
+
+* actualizado readme ([8036892](https://github.com/Beor18/alm-api-backend/commit/8036892))
+* archivos movidos ([3121342](https://github.com/Beor18/alm-api-backend/commit/3121342))
+* cambio en schema ([4d92e7f](https://github.com/Beor18/alm-api-backend/commit/4d92e7f))
+* mejor organizacion ([7eefa15](https://github.com/Beor18/alm-api-backend/commit/7eefa15))
+
+
+### Features
+
+* agregado dependencias ([7839624](https://github.com/Beor18/alm-api-backend/commit/7839624))
+
+
+
 ## [1.7.0](https://github.com/Beor18/alm-api-backend/compare/v1.6.0...v1.7.0) (2020-01-15)
 
 
