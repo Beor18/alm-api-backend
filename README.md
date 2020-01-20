@@ -1,14 +1,14 @@
 # Almundo Server
 
-[![Build Status](https://travis-ci.org/Beor18/alm-api-backend.svg?branch=master)](https://travis-ci.org/Beor18/alm-api-backend)
-
-[![Conventional Commits](https://img.shields.io/badge/Conventional%20Commits-1.0.0-green.svg)](https://conventionalcommits.org)
+[![Build Status](https://travis-ci.org/Beor18/alm-api-backend.svg?branch=master)](https://travis-ci.org/Beor18/alm-api-backend) [![Conventional Commits](https://img.shields.io/badge/Conventional%20Commits-1.0.0-green.svg)](https://conventionalcommits.org)
 
 - Reutilice un esquema que habia realizado para el backend lo pueden ver en [jwt-login](http://github.com/beor18/jwt-login) lo mismo para el frontend.
 
 ## Demo:
 
-[Almundo-server Backend demo](https://almundo-examen.herokuapp.com/api/hoteles)
+[Almundo-server Backend demo api v1](https://almundo-examen.herokuapp.com/api/v1/hoteles)
+
+[Almundo-server Backend demo api v2 - con GraphQL](https://almundo-examen.herokuapp.com/api/v2/graphql)
 
 #### Objetivo profesional y personal:
 
@@ -27,11 +27,17 @@ Crecer profesionalmente y seguir aprendiendo en el día a día. ¡ Nunca paro de
 
 Tener instalado [Node.js](https://nodejs.org/) y [MongoDB](https://www.mongodb.com/es).
 
-Setee variable de entorno de MongoDb:
+Setee variable de entorno de MongoDb
 
 ```sh
 $ export MONGODB_URL="mongodb://..."
-$ ejemplo: export MONGODB_URL="mongodb://localhost:27017/examen-almundo
+$ ejemplo: export MONGODB_URL="mongodb://localhost:27017/examen-almundo"
+```
+
+#### puede optar por crear un archivo .env
+
+```sh
+MONGODB_URL=mongodb://localhost:27017/examen-almundo
 ```
 
 Instalar las dependencias e iniciar:
@@ -71,6 +77,11 @@ $ npm run dev
 $ npm test
 ```
 
+#### Con Docker
+```sh
+$ docker-compose build && docker-compose up
+```
+
 
 #### Ejemplo de agregar hotel mediante Postman y/o similar:
 
@@ -83,16 +94,32 @@ Field Name: amenities | value: business-center
 Field Name: amenities | value: nightclub
 ```
 
-#### Rutas de la Api (utilizar postman):
+#### Rutas de la Api (utilizar postman) v1:
 
 ```js
-/api/hoteles(GET)
-/api/hoteles/:id (GET)
-/api/hoteles (POST)
-/api/hoteles/:id (PUT)
-/api/hoteles/:id (DELETE)
-/api/hoteles/:id/habitaciones (POST)
+/api/v1/hoteles(GET)
+/api/v1/hoteles/:id (GET)
+/api/v1/hoteles (POST)
+/api/v1/hoteles/:id (PUT)
+/api/v1/hoteles/:id (DELETE)
+/api/v1/hoteles/:id/habitaciones (POST)
 ```
+
+#### Rutas y query de la Api v2 con GraphQl:
+```js
+/api/v2/graphql
+```
+
+```js
+{
+  hoteles {
+    id
+    name
+    description
+  }
+}
+```
+
 
 #### Modelo Hotel
 
