@@ -4,11 +4,12 @@ const cors = require('cors');
 const bodyParser = require('body-parser');
 const configDb = require('./config/db');
 const config = require('./config');
+const mongoose = require('mongoose');
 const session = require('express-session');
 const MongoStore = require('connect-mongo')(session);
 const graphqlServer = require('express-graphql');
 const hotel = require('./routes/hotel');
-const schema = require('./controllers/v2/schema')
+const schema = require('./controllers/v2/schema');
 
 const { getLogger, logHandler, terminate } = require('@jwt/utils')
 
