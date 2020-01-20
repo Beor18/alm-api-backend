@@ -1,9 +1,9 @@
 require('newrelic');
 const express = require('express');
-const mongoose = require('mongoose');
 const cors = require('cors');
 const bodyParser = require('body-parser');
-const config = require('./config/db');
+const configDb = require('./config/db');
+const config = require('./config');
 const session = require('express-session');
 const MongoStore = require('connect-mongo')(session);
 const graphqlServer = require('express-graphql');
@@ -21,7 +21,6 @@ module.exports.io = socketIO(server);
 const socketEvento = require('./config-socket/socketEvento');
 
 const log = getLogger(__dirname, __filename)
-const PORT = process.env.PORT || 5000;
 
 app.use(cors(({exposedHeaders: ['Content-Length', 'X-Total-Count']})));
 
@@ -31,7 +30,7 @@ app.use(session({
     resave: false,
     saveUninitialized: false,
     store: new MongoStore({
-        mongooseConnection: config,
+        mongooseConnection: configDb,
     })
 }));
 
@@ -55,8 +54,8 @@ app.get('/', (req, res) => {
 });
 
 if (!module.parent) {
-    server.listen(PORT, () => {
-        log.info(`Server funcionando en puerto ${PORT}`);
+    server.listen(config.port, () => {
+        log.info(`Server funcionando en puerto ${config.port}`);
     })
 
     process.on('SIGINT', terminate(0, 'SIGINT'))
