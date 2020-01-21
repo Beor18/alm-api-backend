@@ -31,12 +31,9 @@ async function getHotelPorId(req, res, next) {
             .populate('rooms')
             .exec((err, hotel) => {
                 if (hotel) {
-                    Hotel.countDocuments((err) => {
-                        if (err) return next(err);
-                        res.status(200).json({
-                            status: 'api ok',
-                            hotel,
-                        });
+                    res.status(200).json({
+                        status: 'api ok',
+                        hotel,
                     });
                 } else {
                     return res.status(404).json({mensaje: 'No encontrado!'});
