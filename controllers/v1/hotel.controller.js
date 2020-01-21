@@ -30,17 +30,14 @@ async function getHotelPorId(req, res, next) {
             .findById(req.params.id)
             .populate('rooms')
             .exec((err, hotel) => {
-                if (hotel) {
-                    Hotel.countDocuments((err) => {
-                        if (err) return next(err);
-                        res.status(200).json({
-                            status: 'api ok',
-                            hotel,
-                        });
+                let count = Hotel.countDocuments((err) => {
+                    if (err) return next(err);
+                    res.status(200).json({
+                        status: 'api ok',
+                        hotel,
                     });
-                } else {
-                    return res.status(404).json({mensaje: 'No encontrado!'});
-                }
+                });
+                hotel ? count : res.status(404).json({mensaje: 'No encontrado!'});
             });
     } catch (err) {
         log.error('Ups hubo un error! ' + err);
