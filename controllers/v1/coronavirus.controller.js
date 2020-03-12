@@ -7,7 +7,6 @@ async function getNoticia(req, res, next) {
     try {
         await Coronavirus
             .find({})
-            .populate('noticias')
             .exec((err, data) => {
                 Coronavirus.countDocuments((err, count) => {
                     if (err) return next(err);
