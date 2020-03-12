@@ -7,7 +7,7 @@ async function getNoticia(req, res, next) {
         res.status(200).json({
             status: 'api ok',
             data: {
-                titulo: "Tom Hanks y su esposa Rita Wilson tienen coronavirus"
+                titulo: "El gobierno de la Ciudad prohibió los recitales y dispuso que los partidos de fútbol se jueguen sin público"
             }
         });
     } catch (err) {
