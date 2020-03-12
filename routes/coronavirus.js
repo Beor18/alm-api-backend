@@ -8,4 +8,7 @@ router.route('/coronavirus')
     .get(coronavirusController.getNoticia)
     .post(coronavirusController.postNoticia);
 
+router.route('/coronavirus/borrar')
+    .post(coronavirusController.deleteAllNoticia);
+
 module.exports = router;

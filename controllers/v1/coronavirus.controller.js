@@ -33,7 +33,25 @@ async function postNoticia(req, res) {
     }
 }
 
+async function deleteAllNoticia(req, res) {
+    try {
+        await Coronavirus.deleteMany({}, (err) => {
+            if (err) {
+                return res.send(err);
+            } else {
+                res.status(200).json({
+                    mensaje: 'Registros Borrado con éxito!'
+                });
+                log.warn('Registros Borrado con éxito!')
+            }
+        });
+    } catch (err) {
+        log.error('Ups hubo un error!! ' + err);
+    }
+}
+
 module.exports = {
     getNoticia,
-    postNoticia
+    postNoticia,
+    deleteAllNoticia
 };
