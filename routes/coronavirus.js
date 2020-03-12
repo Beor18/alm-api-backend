@@ -7,6 +7,8 @@ const coronavirusController = require('../controllers/v1/coronavirus.controller'
 router.route('/coronavirus')
     .get(coronavirusController.getNoticia)
     .post(coronavirusController.postNoticia)
+
+router.route('/coronavirus/:id')
     .put(coronavirusController.modificarNoticia)
 
 router.route('/coronavirus/borrar')
