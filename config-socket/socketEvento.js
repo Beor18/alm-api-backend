@@ -1,5 +1,5 @@
 const { io } = require('../app');
-const Hotel = require('../models/Hotel');
+const Coronavirus = require('../models/Coronavirus');
 const axios = require("axios");
 
 let exec = require('child_process').exec, child;
@@ -8,7 +8,7 @@ let connectCounter = 0;
 io.on('connection', (socket) => {
 
     console.log("Cliente Conectado"), setInterval(
-        () => getApiAndEmit(socket),
+        () => getCountHotels(socket),
         2000
     );
 
@@ -16,15 +16,15 @@ io.on('connection', (socket) => {
     connectCounter++; 
     console.log("Numero de conexiones actuales: " + connectCounter);
 
-    setInterval(
-        () => getUsoMemo(socket),
-        4000
-    );
+    // setInterval(
+    //     () => getUsoMemo(socket),
+    //     4000
+    // );
 
-    setInterval(
-        () => getCountHotels(socket), 
-        3000
-    );
+    // setInterval(
+    //     () => getCountHotels(socket), 
+    //     3000
+    // );
 
     socket.on('disconnect', () => {
         console.log("Cliente Desconectado");
@@ -34,22 +34,22 @@ io.on('connection', (socket) => {
 
 });
 
-async function getApiAndEmit(socket) {
-    try {
-        const res = await Hotel.find({}).sort({ _id: 1 }).countDocuments();
-        const p = await Hotel.find({}).sort({_id: -1}).limit(5);
-        socket.emit("FromAPI", res);
-        socket.emit("FromHotel", p);
-    } catch (error) {
-        console.error(`Error: ${error.code}`);
-    }
-};
+// async function getApiAndEmit(socket) {
+//     try {
+//         const res = await Coronavirus.find({}).sort({ _id: 1 }).countDocuments();
+//         const p = await Coronavirus.find({}).sort({_id: -1}).limit(5);
+//         socket.emit("FromAPI", res);
+//         socket.emit("FromHotel", p);
+//     } catch (error) {
+//         console.error(`Error: ${error.code}`);
+//     }
+// };
 
 async function getCountHotels(socket) {
     try {
-        const respuesta = await axios.get("http://localhost:5000/api/hoteles");
-        socket.emit("FromTemperatura", respuesta.data.cuantos);
-        // console.log("Tenemos un total de: " + respuesta.data.cuantos + " Hoteles");
+        const respuesta = await axios.get("https://almundo-examen.herokuapp.com/api/v1/coronavirus");
+        socket.emit("FromTemperatura", respuesta.data.total);
+        console.log("Tenemos un total de: " + respuesta.data.total + " Hoteles");
     } catch (error) {
         console.error(`Error: ${error.code}`);
     }

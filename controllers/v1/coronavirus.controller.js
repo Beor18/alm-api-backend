@@ -33,6 +33,18 @@ async function postNoticia(req, res) {
     }
 }
 
+async function modificarNoticia(req, res) {
+    try {
+        const { id } = req.params;
+        await Coronavirus.updateOne({ _id: id }, req.body);
+        res.status(200).json('Modificado con éxito!')
+        log.warn('Modificado con éxito!');
+    } catch (err) {
+        log.error('Ups hubo un error!! ' + err);
+    }
+
+}
+
 async function deleteAllNoticia(req, res) {
     try {
         await Coronavirus.deleteMany({}, (err) => {
@@ -53,5 +65,6 @@ async function deleteAllNoticia(req, res) {
 module.exports = {
     getNoticia,
     postNoticia,
+    modificarNoticia,
     deleteAllNoticia
 };
