@@ -7,7 +7,7 @@ async function getNoticia(req, res, next) {
         res.status(200).json({
             status: 'api ok',
             data: {
-                titulo: "El gobierno de la Ciudad prohibió los recitales y dispuso que los partidos de fútbol se jueguen sin público"
+                titulo: "Jujuy suspendió las clases por dos semana"
             }
         });
     } catch (err) {
