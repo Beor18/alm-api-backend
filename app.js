@@ -9,6 +9,7 @@ const session = require('express-session');
 const MongoStore = require('connect-mongo')(session);
 const graphqlServer = require('express-graphql');
 const hotel = require('./routes/hotel');
+const coronavirus = require('./routes/coronavirus');
 const schema = require('./controllers/v2/schema');
 
 const { getLogger, logHandler, terminate } = require('@jwt/utils')
@@ -40,6 +41,7 @@ app.use(bodyParser.urlencoded({ extended: true }));
 app.use(logHandler);
 // API REST v1
 app.use('/api/v1', hotel);
+app.use('/api/v1', coronavirus);
 
 // API v2 con GraphQL
 app.use('/api/v2/graphql', graphqlServer({
