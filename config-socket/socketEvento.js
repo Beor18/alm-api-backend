@@ -47,7 +47,7 @@ io.on('connection', (socket) => {
 
 async function getCountHotels(socket) {
     try {
-        const respuesta = await axios.get("http://localhost:5000/api/v1/coronavirus");
+        const respuesta = await axios.get("https://almundo-examen.herokuapp.com/api/v1/coronavirus");
         socket.emit("FromTemperatura", respuesta.data.data[0]);
         // socket.emit("FromRecuperados", respuesta.data.data[0].recuperados);
         // socket.emit("FromFallecidos", respuesta.data.data[0].fallecidos);
