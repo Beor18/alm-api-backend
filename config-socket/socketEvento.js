@@ -47,40 +47,43 @@ io.on('connection', (socket) => {
 
 async function getCountHotels(socket) {
     try {
-        const respuesta = await axios.get("https://almundo-examen.herokuapp.com/api/v1/coronavirus");
-        socket.emit("FromTemperatura", respuesta.data[0].confirmados);
-        console.log("Tenemos un total de: " + respuesta.data[0].confirmados + " Casos Confirmados");
+        const respuesta = await axios.get("http://localhost:5000/api/v1/coronavirus");
+        socket.emit("FromTemperatura", respuesta.data.data[0]);
+        // socket.emit("FromRecuperados", respuesta.data.data[0].recuperados);
+        // socket.emit("FromFallecidos", respuesta.data.data[0].fallecidos);
+        // socket.emit("FromTotalMundo", respuesta.data.data[0].total_mundo);
+        // socket.emit("FromTitulo", respuesta.data.data[0].titulo);
     } catch (error) {
         console.error(`Error: ${error.code}`);
     }
 };
 
-async function getUsoMemo(socket) {
-    try {
-        let memTotal, memUsed = 0, memFree = 0, memBuffered = 0, percentBuffered, percentUsed, percentFree;
-        child = await exec("egrep --color 'MemFree' /proc/meminfo | egrep '[0-9.]{4,}' -o", (error, stdout) => {
-            if (error !== null) {
-              console.log('exec error: ' + error);
-            } else {
-              memFree = stdout;
-              memUsed = parseInt(memTotal)-parseInt(memFree);
-              percentUsed = Math.round(parseInt(memUsed)*100/parseInt(memTotal));
-              percentFree = 100 - percentUsed;
-              socket.emit('memDisponible', stdout); 
-            }
-        });
+// async function getUsoMemo(socket) {
+//     try {
+//         let memTotal, memUsed = 0, memFree = 0, memBuffered = 0, percentBuffered, percentUsed, percentFree;
+//         child = await exec("egrep --color 'MemFree' /proc/meminfo | egrep '[0-9.]{4,}' -o", (error, stdout) => {
+//             if (error !== null) {
+//               console.log('exec error: ' + error);
+//             } else {
+//               memFree = stdout;
+//               memUsed = parseInt(memTotal)-parseInt(memFree);
+//               percentUsed = Math.round(parseInt(memUsed)*100/parseInt(memTotal));
+//               percentFree = 100 - percentUsed;
+//               socket.emit('memDisponible', stdout); 
+//             }
+//         });
 
-        child = await exec("egrep --color 'Buffers' /proc/meminfo | egrep '[0-9.]{4,}' -o", (error, stdout) => {
-            if (error !== null) {
-              console.log('exec error: ' + error);
-            } else {
-              memBuffered = stdout;
-              percentBuffered = Math.round(parseInt(memBuffered)*100/parseInt(memTotal));
-              socket.emit('memBuffered', stdout);
-            }
-        });
+//         child = await exec("egrep --color 'Buffers' /proc/meminfo | egrep '[0-9.]{4,}' -o", (error, stdout) => {
+//             if (error !== null) {
+//               console.log('exec error: ' + error);
+//             } else {
+//               memBuffered = stdout;
+//               percentBuffered = Math.round(parseInt(memBuffered)*100/parseInt(memTotal));
+//               socket.emit('memBuffered', stdout);
+//             }
+//         });
         
-    } catch (error) {
-        console.error(`Error: ${error.code}`);
-    }
-};
+//     } catch (error) {
+//         console.error(`Error: ${error.code}`);
+//     }
+// };
