@@ -1,6 +1,6 @@
 const mongoose = require('mongoose');
 const toJson = require('@meanie/mongoose-to-json');
-const moment = require('moment');
+const moment = require('moment-timezone');
 require('mongodb-moment')(moment);
 const Schema = mongoose.Schema;
 
@@ -13,7 +13,7 @@ const CoronavirusSchema = new Schema({
     total_mundo: { type: Number },
     date: {
         type: String,
-        default: moment(new Date()).format('LT')
+        default: moment(new Date()).tz('America/Argentina/Buenos_Aires').format('LT')
     }
 });
 
