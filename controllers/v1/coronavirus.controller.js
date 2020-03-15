@@ -1,6 +1,8 @@
 const { Coronavirus } = require('../../models/Coronavirus');
 const { getLogger } = require('@jwt/utils')
 const log = getLogger(__dirname, __filename)
+const moment = require('moment-timezone');
+require('mongodb-moment')(moment);
 
 
 async function getNoticia(req, res, next) {
@@ -36,7 +38,14 @@ async function postNoticia(req, res) {
 async function modificarNoticia(req, res) {
     try {
         const { id } = req.params;
-        await Coronavirus.updateOne({ _id: id }, req.body);
+        await Coronavirus.updateOne({ _id: id }, {
+            date: moment(new Date()).tz('America/Argentina/Buenos_Aires').format('HH:mm'),
+            titulo: req.body.titulo,
+            confirmados: req.body.confirmados,
+            total_mundo: req.body.total_mundo,
+            recuperados: req.body.recuperados,
+            fallecidos: req.body.fallecidos
+        });
         res.status(200).json('Modificado con éxito!')
         log.warn('Modificado con éxito!');
     } catch (err) {

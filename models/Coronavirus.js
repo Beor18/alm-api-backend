@@ -13,7 +13,7 @@ const CoronavirusSchema = new Schema({
     total_mundo: { type: Number },
     date: {
         type: String,
-        default: moment(new Date()).tz('America/Argentina/Buenos_Aires').format('LT')
+        default: moment(new Date()).tz('America/Argentina/Buenos_Aires').format('HH:mm')
     }
 });
 
