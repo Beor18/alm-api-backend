@@ -17,6 +17,13 @@ const CoronavirusSchema = new Schema({
     }
 });
 
+CoronavirusSchema.methods.toJSON = function() {
+    let obj = this.toObject();
+    delete obj._id;
+    delete obj.__v
+    return obj;
+}
+
 const Coronavirus = mongoose.model('Coronavirus', CoronavirusSchema);
 
 module.exports = {

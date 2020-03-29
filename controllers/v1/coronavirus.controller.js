@@ -23,17 +23,6 @@ async function getNoticia(req, res, next) {
         log.error('Ups hubo un error! ' + err);
     }
 }
-async function postNoticia(req, res) {
-    try {
-        const coronavirus = new Coronavirus(req.body);
-        await coronavirus.save(() => {
-            res.status(201).json({mensaje: "Noticia agregado con éxito!"});
-            log.info("Noticia agregado con éxito!");
-        });
-    } catch (err) {
-        log.error('Ups hubo un error!! ' + err);
-    }
-}
 
 async function modificarNoticia(req, res) {
     try {
@@ -73,7 +62,6 @@ async function deleteAllNoticia(req, res) {
 
 module.exports = {
     getNoticia,
-    postNoticia,
     modificarNoticia,
     deleteAllNoticia
 };

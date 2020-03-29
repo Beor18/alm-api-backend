@@ -6,10 +6,18 @@ let exec = require('child_process').exec, child;
 let connectCounter = 0;
 
 io.on('connection', (socket) => {
-
-    console.log("Cliente Conectado"), setInterval(
+    
+    console.log("Cliente Conectado"), 
+    getCountHotels(socket)
+    getMapa(socket)
+    setInterval(
         () => getCountHotels(socket),
-        2000
+        120000
+    );
+
+    setInterval(
+        () => getMapa(socket),
+        120000
     );
 
     console.log("Nueva conexión desde " +  socket.handshake.address);
@@ -47,8 +55,22 @@ io.on('connection', (socket) => {
 
 async function getCountHotels(socket) {
     try {
-        const respuesta = await axios.get("https://almundo-examen.herokuapp.com/api/v1/coronavirus");
+        const respuesta = await axios.get("https://sunny-studio-271511.appspot.com/api/v1/coronavirus");
         socket.emit("FromTemperatura", respuesta.data.data[0]);
+        // socket.emit("FromRecuperados", respuesta.data.data[0].recuperados);
+        // socket.emit("FromFallecidos", respuesta.data.data[0].fallecidos);
+        // socket.emit("FromTotalMundo", respuesta.data.data[0].total_mundo);
+        // socket.emit("FromTitulo", respuesta.data.data[0].titulo);
+    } catch (error) {
+        console.error(`Error: ${error.code}`);
+    }
+};
+
+async function getMapa(socket) {
+    try {
+        const respuesta = await axios.get("http://sunny-studio-271511.appspot.com/api/v1/coronavirus/argentina");
+        socket.emit("FromMapa", respuesta.data[0]);
+        console.log(respuesta.data[0])
         // socket.emit("FromRecuperados", respuesta.data.data[0].recuperados);
         // socket.emit("FromFallecidos", respuesta.data.data[0].fallecidos);
         // socket.emit("FromTotalMundo", respuesta.data.data[0].total_mundo);
