@@ -103,6 +103,10 @@ Field Name: amenities | value: nightclub
 /api/v1/hoteles/:id (PUT)
 /api/v1/hoteles/:id (DELETE)
 /api/v1/hoteles/:id/habitaciones (POST)
+
+/api/v1/coronavirus (GET)
+/api/v1/coronavirus/argentina (GET) 
+/api/v1/coronavirus/argentina/provincia (GET)
 ```
 
 #### Rutas y query de la Api v2 con GraphQl:
@@ -149,4 +153,44 @@ description: { type: String },
 availability: { type: Number },
 image: { type: String },
 amenities: { type: Array }
+```
+
+#### Modelo Coronavirus
+
+```js
+date: { type: String },
+titulo: { type: String },
+confirmados: { type: Number },
+total_mundo: { type: Number },
+recuperados: { type: Number },
+fallecidos: { type: Number },
+```
+
+#### Modelo Mapa Argentina Coronavirus
+
+```js
+type: { type: String },
+properties: {
+  lugar: { type: String, required: true },
+  municipalidad: { type: String, required: true },
+  ciudad: { type: String, required: true },
+  confirmados: { type: Number, require: true },
+  fallecidos: { type: Number, require: true },
+  recuperados: { type: Number, require: true },
+},
+geometry: {
+  type: { type: String, enum: ['Point'] },
+  coordinates: { type: [Number]}
+}
+```
+
+#### Modelo Provincias
+
+```js
+provincia: { type: String, required: true },
+municipalidad: { type: String, required: true },
+ciudad: { type: String, required: true },
+confirmados: { type: Number, require: true },
+fallecidos: { type: Number, require: true },
+recuperados: { type: Number, require: true },
 ```

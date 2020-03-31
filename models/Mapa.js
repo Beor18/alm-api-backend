@@ -8,7 +8,12 @@ mongoose.plugin(toJson);
 const MapaSchema = new Schema({
     type: { type: String },
     properties: {
-      lugar: { type: String, required: true }
+      lugar: { type: String, required: true },
+      municipalidad: { type: String, required: true },
+      ciudad: { type: String, required: true },
+      confirmados: { type: Number, require: true },
+      fallecidos: { type: Number, require: true },
+      recuperados: { type: Number, require: true },
     },
     geometry: {
         type: { type: String, enum: ['Point'] },

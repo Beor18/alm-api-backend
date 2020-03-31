@@ -31,7 +31,12 @@ async function postCaso(req, res) {
         coordinates:req.body.coordinates.split(',').map(Number)
       },
       properties: {
-        lugar: req.body.lugar
+        lugar: req.body.lugar,
+        municipalidad: req.body.municipalidad,
+        ciudad: req.body.ciudad,
+        confirmados: req.body.confirmados,
+        fallecidos: req.body.fallecidos,
+        recuperados: req.body.recuperados
       }
     },);
 

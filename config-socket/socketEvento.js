@@ -1,8 +1,8 @@
 const { io } = require('../app');
-const Coronavirus = require('../models/Coronavirus');
 const axios = require("axios");
 
-let exec = require('child_process').exec, child;
+// const Coronavirus = require('../models/Coronavirus');
+// let exec = require('child_process').exec, child;
 let connectCounter = 0;
 
 io.on('connection', (socket) => {
@@ -23,16 +23,6 @@ io.on('connection', (socket) => {
     console.log("Nueva conexión desde " +  socket.handshake.address);
     connectCounter++; 
     console.log("Numero de conexiones actuales: " + connectCounter);
-
-    // setInterval(
-    //     () => getUsoMemo(socket),
-    //     4000
-    // );
-
-    // setInterval(
-    //     () => getCountHotels(socket), 
-    //     3000
-    // );
 
     socket.on('disconnect', () => {
         console.log("Cliente Desconectado");
@@ -57,10 +47,6 @@ async function getCountHotels(socket) {
     try {
         const respuesta = await axios.get("https://sunny-studio-271511.appspot.com/api/v1/coronavirus");
         socket.emit("FromTemperatura", respuesta.data.data[0]);
-        // socket.emit("FromRecuperados", respuesta.data.data[0].recuperados);
-        // socket.emit("FromFallecidos", respuesta.data.data[0].fallecidos);
-        // socket.emit("FromTotalMundo", respuesta.data.data[0].total_mundo);
-        // socket.emit("FromTitulo", respuesta.data.data[0].titulo);
     } catch (error) {
         console.error(`Error: ${error.code}`);
     }
@@ -71,10 +57,6 @@ async function getMapa(socket) {
         const respuesta = await axios.get("http://sunny-studio-271511.appspot.com/api/v1/coronavirus/argentina");
         socket.emit("FromMapa", respuesta.data[0]);
         console.log(respuesta.data[0])
-        // socket.emit("FromRecuperados", respuesta.data.data[0].recuperados);
-        // socket.emit("FromFallecidos", respuesta.data.data[0].fallecidos);
-        // socket.emit("FromTotalMundo", respuesta.data.data[0].total_mundo);
-        // socket.emit("FromTitulo", respuesta.data.data[0].titulo);
     } catch (error) {
         console.error(`Error: ${error.code}`);
     }
