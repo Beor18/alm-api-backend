@@ -2,6 +2,41 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+## [1.9.0](https://github.com/Beor18/alm-api-backend/compare/v1.8.2...v1.9.0) (2020-03-31)
+
+
+### Bug Fixes
+
+* fix script ([83c49e3](https://github.com/Beor18/alm-api-backend/commit/83c49e3))
+* refactor controller ([fe3f26d](https://github.com/Beor18/alm-api-backend/commit/fe3f26d))
+* refactor controller ([5efc073](https://github.com/Beor18/alm-api-backend/commit/5efc073))
+* server puerto ([db23351](https://github.com/Beor18/alm-api-backend/commit/db23351))
+
+
+### Features
+
+* actualizado ([e824c58](https://github.com/Beor18/alm-api-backend/commit/e824c58))
+* actualizado endpoint ([a22bf3d](https://github.com/Beor18/alm-api-backend/commit/a22bf3d))
+* actualizado endpoint ([d6d1566](https://github.com/Beor18/alm-api-backend/commit/d6d1566))
+* actualizado endpoint ([41a883c](https://github.com/Beor18/alm-api-backend/commit/41a883c))
+* actualizado endpoint ([546b26d](https://github.com/Beor18/alm-api-backend/commit/546b26d))
+* actualizado endpoint ([d2ffa54](https://github.com/Beor18/alm-api-backend/commit/d2ffa54))
+* actualizado endpoint ([13c86d4](https://github.com/Beor18/alm-api-backend/commit/13c86d4))
+* actualizado endpoint ([425209f](https://github.com/Beor18/alm-api-backend/commit/425209f))
+* actualizado socket ([9a092e8](https://github.com/Beor18/alm-api-backend/commit/9a092e8))
+* actualizado socket ([84c1ef2](https://github.com/Beor18/alm-api-backend/commit/84c1ef2))
+* actualizado socket ([8312a35](https://github.com/Beor18/alm-api-backend/commit/8312a35))
+* actualizado socket ([a94a494](https://github.com/Beor18/alm-api-backend/commit/a94a494))
+* actualizado socket ([94115a4](https://github.com/Beor18/alm-api-backend/commit/94115a4))
+* cache ([a19e2e2](https://github.com/Beor18/alm-api-backend/commit/a19e2e2))
+* cache ([f42ece8](https://github.com/Beor18/alm-api-backend/commit/f42ece8))
+* endpoint coronavirus argentina ([ac40d45](https://github.com/Beor18/alm-api-backend/commit/ac40d45))
+* endpoint coronavirus argentina ([de22c95](https://github.com/Beor18/alm-api-backend/commit/de22c95))
+* refactor ([8b35c2e](https://github.com/Beor18/alm-api-backend/commit/8b35c2e))
+* refactor ([43d9fac](https://github.com/Beor18/alm-api-backend/commit/43d9fac))
+
+
+
 ### [1.8.2](https://github.com/Beor18/alm-api-backend/compare/v1.8.1...v1.8.2) (2020-01-20)
 
 
