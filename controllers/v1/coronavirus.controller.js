@@ -7,18 +7,14 @@ require('mongodb-moment')(moment);
 
 async function getNoticia(req, res, next) {
     try {
-        await Coronavirus
-            .find({})
-            .exec((err, data) => {
-                Coronavirus.countDocuments((err, count) => {
-                    if (err) return next(err);
-                    res.status(200).json({
-                        status: 'api ok',
-                        data,
-                        total: count
-                    });
-                });
-            });
+        const findNoticia = await Coronavirus.find({});
+        const countNoticia = await Coronavirus.countDocuments((count) => count);
+
+        return res.status(200).json({
+            status: 'api ok',
+            data: findNoticia,
+            total: countNoticia
+        });       
     } catch (err) {
         log.error('Ups hubo un error! ' + err);
     }
@@ -33,7 +29,8 @@ async function modificarNoticia(req, res) {
             confirmados: req.body.confirmados,
             total_mundo: req.body.total_mundo,
             recuperados: req.body.recuperados,
-            fallecidos: req.body.fallecidos
+            fallecidos: req.body.fallecidos,
+            activos: req.body.confirmados - req.body.recuperados - req.body.fallecidos
         });
         res.status(200).json('Modificado con éxito!')
         log.warn('Modificado con éxito!');

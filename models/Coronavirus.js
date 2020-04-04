@@ -7,10 +7,11 @@ const Schema = mongoose.Schema;
 mongoose.plugin(toJson);
 const CoronavirusSchema = new Schema({
     titulo: { type: String },
-    confirmados: { type: Number },
-    fallecidos: { type: Number },
-    recuperados: { type: Number },
-    total_mundo: { type: Number },
+    confirmados: { type: String },
+    fallecidos: { type: String },
+    recuperados: { type: String },
+    activos: { type: String },
+    total_mundo: { type: String },
     date: {
         type: String,
         default: moment(new Date()).tz('America/Argentina/Buenos_Aires').format('HH:mm')
