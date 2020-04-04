@@ -1,4 +1,5 @@
 const { io } = require('../app');
+const config = require('@jwt/config');
 const axios = require("axios");
 
 // const Coronavirus = require('../models/Coronavirus');
@@ -45,7 +46,7 @@ io.on('connection', (socket) => {
 
 async function getCountHotels(socket) {
     try {
-        const respuesta = await axios.get("https://sunny-studio-271511.appspot.com/api/v1/coronavirus");
+        const respuesta = await axios.get(config.socket.coronavirus);
         socket.emit("FromTemperatura", respuesta.data.data[0]);
     } catch (error) {
         console.error(`Error: ${error.code}`);
@@ -54,7 +55,7 @@ async function getCountHotels(socket) {
 
 async function getMapa(socket) {
     try {
-        const respuesta = await axios.get("http://sunny-studio-271511.appspot.com/api/v1/coronavirus/argentina");
+        const respuesta = await axios.get(config.socket.corona_argentina);
         socket.emit("FromMapa", respuesta.data[0]);
         console.log(respuesta.data[0])
     } catch (error) {
