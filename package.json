@@ -7,7 +7,7 @@
         "start": "export $(cat .env | xargs) && env && cross-env NODE_ENV=production node app.js",
         "docker": "docker-compose build && docker-compose up",
         "dev": "export $(cat .env | xargs) && env && cross-env NODE_ENV=development nodemon app.js",
-        "debug": "cross-env DEBUG=* node --inspect app.js",
+        "debug": "export $(cat .env | xargs) && env && cross-env DEBUG=* node --inspect app.js",
         "test": "cross-env NODE_ENV=test jest --config=jest.config.js --coverage",
         "release": "standard-version"
     },
