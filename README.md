@@ -27,17 +27,13 @@ Crecer profesionalmente y seguir aprendiendo en el día a día. ¡ Nunca paro de
 
 Tener instalado [Node.js](https://nodejs.org/) y [MongoDB](https://www.mongodb.com/es).
 
-Setee variable de entorno de MongoDb
 
-```sh
-$ export MONGODB_URL="mongodb://..."
-$ ejemplo: export MONGODB_URL="mongodb://localhost:27017/examen-almundo"
-```
-
-#### puede optar por crear un archivo .env
+#### Modificar .env-example y guardar como .env
 
 ```sh
 MONGODB_URL=mongodb://localhost:27017/examen-almundo
+SOCKET_URL_CORONA=https://TU-API-DEPLOYADA/api/v1/coronavirus
+SOCKET_URL_CORONA_ARGENTINA=http://TU-API-DEPLOYADA/api/v1/coronavirus/argentina
 ```
 
 Instalar las dependencias e iniciar:
@@ -155,7 +151,7 @@ image: { type: String },
 amenities: { type: Array }
 ```
 
-#### Modelo Coronavirus
+#### Modelo Total casos Coronavirus y noticia
 
 ```js
 date: { type: String },
@@ -184,7 +180,7 @@ geometry: {
 }
 ```
 
-#### Modelo Provincias
+#### Modelo Casos por Provincias
 
 ```js
 provincia: { type: String, required: true },
