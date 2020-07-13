@@ -42,7 +42,7 @@
         "node-cache": "^5.1.0",
         "short-unique-id": "^1.1.1",
         "socket.io": "^2.1.1",
-        "standard-version": "^6.0.1"
+        "standard-version": "^8.0.1"
     },
     "devDependencies": {
         "@commitlint/cli": "^8.1.0",
